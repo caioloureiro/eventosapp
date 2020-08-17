@@ -1,0 +1,10 @@
+Olá,
+
+Este sistema cria eventos e convidados para eles.
+
+Passos:
+
+1. Ative o Wamp64 ou o MySQL na máquina.
+2. Importe o projeto pelo Eclipse.
+3. Ative o servidor do Spring Boot através do comando "Run as..." > "JAVA Application".
+4. Acesse o sistema pelo browser no endereço: "http://localhost:8081".
