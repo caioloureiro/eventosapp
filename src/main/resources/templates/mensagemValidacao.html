@@ -1,0 +1,26 @@
+<html
+	xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="author" content="Caio Loureiro">
+		<meta name="robots" content="index, follow">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Content-Language" content="pt-br">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="rating" content="general"/>
+		<title>eventosapp</title>
+		<link rel="stylesheet" href="../css/estilo.css"/>
+	</head>
+	<body>
+		
+		<div role="alert" th:if="${not #strings.isEmpty(mensagem)}"></div>
+		
+		<div class="alerta"><span th:text="${mensagem}"></span></div>
+		
+		<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+		<script type="text/javascript" src="js/motor.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<html
+	xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="author" content="Caio Loureiro">
+		<meta name="robots" content="index, follow">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Content-Language" content="pt-br">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="rating" content="general"/>
+		<title>eventosapp</title>
+		<link rel="stylesheet" href="../css/estilo.css"/>
+	</head>
+	<body>
+		<h1>Lista de Eventos para Usuário Criador</h1>
+		<div class="btn-container">
+			<a href="/cadastrarEvento"><div class="btn">Cadastrar Eventos</div></a>
+			<a href="/eventosCriador"><div class="btn">Atualizar</div></a>
+		</div>
+		
+		<table>
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Local</th>
+					<th>Data</th>
+					<th>Horário</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="evento : ${eventos}">
+					<td><a th:href="${(#mvc.url('EC#detalhesEvento').arg(0, evento.codigo)).build()}"><span th:text="${evento.nome}"></span></a></td>
+					<td><span th:text="${evento.local}"></span></td>
+					<td><span th:text="${evento.data}"></span></td>
+					<td><span th:text="${evento.horario}"></span></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+		<script type="text/javascript" src="js/motor.js"></script>
+
+	</body>
+</html>
