@@ -1,0 +1,62 @@
+<html
+	xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="author" content="Caio Loureiro">
+		<meta name="robots" content="index, follow">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Content-Language" content="pt-br">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="rating" content="general"/>
+		<title>eventosapp</title>
+		<link rel="stylesheet" href="../css/estilo.css"/>
+	</head>
+	<body>
+	
+		<h1>Evento</h1>
+		
+		<div class="btn-container">
+			<a href="/eventos"><div class="btn100">Voltar</div></a>
+		</div>
+		
+		<div th:each="evento : ${evento}" class="container">
+			<div class="linha">Evento: <span th:text="${evento.nome}"></span></div>
+			<div class="linha">Local: <span th:text="${evento.local}"></span></div>
+			<div class="linha">Data: <span th:text="${evento.data}"></span></div>
+			<div class="linha">Horário: <span th:text="${evento.horario}"></span></div>
+		</div>
+		
+		<div class="container">
+			<form method="POST">
+				<div class="linha"><div class="legenda">Nome: </div><input type="text" value="" name="nomeConvidado"/></div>
+				<div class="linha"><div class="legenda">RG: </div><input type="text" value="" name="rg"/></div>
+				<div class="linha"><button type="submit" class="btn">Adicionar</button></div>
+			</form>
+		</div>
+		
+		<th:block th:include="mensagemValidacao"></th:block>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>RG</th>
+					<th>Deletar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="convidado : ${convidados}">
+					<td><span th:text="${convidado.nomeConvidado}"></span></td>
+					<td><span th:text="${convidado.rg}"></span></td>
+					<td><a th:href="${(#mvc.url('EC#deletarConvidado').arg(0, convidado.rg)).build()}">Excluir</a></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+		<script type="text/javascript" src="js/motor.js"></script>
+
+	</body>
+</html>
